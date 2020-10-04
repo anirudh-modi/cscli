@@ -1,6 +1,6 @@
 # Learnings
 
-## Declaring a constanst file
+## Declaring a constant file
 To declare a file which will contian constants to be used in the application, one needs to use a `static` class, with either `const` variables.
 
 ```
@@ -18,7 +18,7 @@ namespace cscli
 }
 ```
 
-## Declaring a helper file / constanst file
+## Declaring a helper file
 To declare a file which may contian helper functions or constants, one needs to use a `static` class, with either `const` variables or `static` method.
 
 ```
