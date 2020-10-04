@@ -9,7 +9,6 @@ namespace cscli
         {
             switch (printerType)
             {
-
                 case Constants.SPACED_TABLE:
                     PrintSpacedTable(title, rows);
                     break;
@@ -73,7 +72,7 @@ namespace cscli
             {
                 string command = row.command;
                 string description = row.description;
-                Console.WriteLine("|   {0}   |   {1}   |", getCenteredText(command, maxCommand), getCenteredText(description, maxDescription));
+                Console.WriteLine("{0}   {1}   {0}   {2}   {0}", Constants.COLUMN_DELIMETER, getCenteredText(command, maxCommand), getCenteredText(description, maxDescription));
             }
 
             PrintRowSeparator(sumOfPads);
