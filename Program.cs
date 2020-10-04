@@ -11,17 +11,30 @@ namespace cscli
             Console.WriteLine("\nWelcome to TODO using C#.Net\n");
             Console.ResetColor();
 
-            ConsoleHelper.Row[] rows = new ConsoleHelper.Row[] {
-                new ConsoleHelper.Row("add", "this is a test", false),
-                new ConsoleHelper.Row("tasks", "Listing all the tasks is a test", false),
-            };
-            if (args.Length > 0 && args[0] == "-t")
+            if (args.Length > 0)
             {
-                ConsoleHelper.PrintTable(Constants.BORDER_TABLE, "Usage", rows);
+                string command = args[0];
+                switch (command)
+                {
+                    case "add":
+                        Console.WriteLine("Add");
+                        break;
+                    case "tasks":
+                        Console.WriteLine("Listing");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Command");
+                        break;
+                }
             }
             else
             {
-                ConsoleHelper.PrintTable(Constants.SPACED_TABLE, "Usage", rows);
+                Console.WriteLine("Usage: dotnet run [options]\n");
+                ConsoleHelper.Row[] rows = new ConsoleHelper.Row[] {
+                new ConsoleHelper.Row("add", "To add a new task", false),
+                new ConsoleHelper.Row("tasks", "List all tasks", false),
+            };
+                ConsoleHelper.PrintTable(Constants.SPACED_TABLE, "Options", rows);
             }
         }
     }
