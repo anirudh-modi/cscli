@@ -5,7 +5,21 @@ namespace cscli
 {
     static class ConsoleHelper
     {
-        public static void PrintTable(string printerType, string title, object[] rows)
+        public class Row
+        {
+            public string title;
+            public string description;
+
+            public bool isHeader;
+
+            public Row(string title, string description, bool isHeader)
+            {
+                this.title = title;
+                this.description = description;
+                this.isHeader = isHeader;
+            }
+        }
+        public static void PrintTable(string printerType, string title, Row[] rows)
         {
             switch (printerType)
             {
@@ -23,31 +37,31 @@ namespace cscli
             }
         }
 
-        private static void PrintSpacedTable(string title, object[] rows)
+        private static void PrintSpacedTable(string title, Row[] rows)
         {
             Console.WriteLine($"{title}:");
-            foreach (dynamic row in rows)
+            foreach (Row row in rows)
             {
-                Console.WriteLine("  {0,-20}{1,-1}", row.command, row.description);
+                Console.WriteLine("  {0,-20}{1,-1}", row.title, row.description);
             }
         }
 
-        private static void PrintBorderTable(string title, object[] rows)
+        private static void PrintBorderTable(string title, Row[] rows)
         {
             int maxDescription = -1;
             int maxCommand = -1;
             int EmptySpace = 3;
 
-            foreach (dynamic row in rows)
+            foreach (Row row in rows)
             {
                 if (row.description.Length > maxDescription)
                 {
                     maxDescription = row.description.Length;
                 }
 
-                if (row.command.Length > maxCommand)
+                if (row.title.Length > maxCommand)
                 {
-                    maxCommand = row.command.Length;
+                    maxCommand = row.title.Length;
                 }
             }
 
@@ -68,9 +82,9 @@ namespace cscli
             Console.WriteLine(CenteredTitle);
             PrintRowSeparator(sumOfPads);
 
-            foreach (dynamic row in rows)
+            foreach (Row row in rows)
             {
-                string command = row.command;
+                string command = row.title;
                 string description = row.description;
                 Console.WriteLine("{0}   {1}   {0}   {2}   {0}", Constants.COLUMN_DELIMETER, getCenteredText(command, maxCommand), getCenteredText(description, maxDescription));
             }
