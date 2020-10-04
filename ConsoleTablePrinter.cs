@@ -7,10 +7,10 @@ namespace cscli
     {
         public class Row
         {
-            public string title;
-            public string description;
+            public string title { get; set; }
+            public string description { get; set; }
 
-            public bool isHeader;
+            public bool isHeader { get; set; }
 
             public Row(string title, string description, bool isHeader)
             {
@@ -19,6 +19,7 @@ namespace cscli
                 this.isHeader = isHeader;
             }
         }
+
         public static void PrintTable(string printerType, string title, Row[] rows)
         {
             switch (printerType)
