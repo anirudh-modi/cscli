@@ -1,5 +1,3 @@
-# Learnings
-
 # Declaring a constant file
 To declare a file which will contian constants to be used in the application, one needs to use a `static` class, with either `const` variables.
 
