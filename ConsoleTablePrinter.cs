@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+using static cscli.Constants
 
 namespace cscli
 {
@@ -24,11 +24,11 @@ namespace cscli
         {
             switch (printerType)
             {
-                case Constants.SPACED_TABLE:
+                case SPACED_TABLE:
                     PrintSpacedTable(title, rows);
                     break;
 
-                case Constants.BORDER_TABLE:
+                case BORDER_TABLE:
                     PrintBorderTable(title, rows);
                     break;
 
@@ -77,7 +77,7 @@ namespace cscli
             }
 
             int sumOfPads = maxCommand + maxDescription + EmptySpace * 4 + 3;
-            string CenteredTitle = String.Format("{0}{1}{0}", Constants.COLUMN_DELIMETER, getCenteredText(title, sumOfPads - 2));
+            string CenteredTitle = String.Format("{0}{1}{0}", COLUMN_DELIMETER, getCenteredText(title, sumOfPads - 2));
 
             PrintRowSeparator(sumOfPads);
             Console.WriteLine(CenteredTitle);
@@ -87,7 +87,7 @@ namespace cscli
             {
                 string command = row.title;
                 string description = row.description;
-                Console.WriteLine("{0}   {1}   {0}   {2}   {0}", Constants.COLUMN_DELIMETER, getCenteredText(command, maxCommand), getCenteredText(description, maxDescription));
+                Console.WriteLine("{0}   {1}   {0}   {2}   {0}", COLUMN_DELIMETER, getCenteredText(command, maxCommand), getCenteredText(description, maxDescription));
             }
 
             PrintRowSeparator(sumOfPads);
@@ -102,7 +102,7 @@ namespace cscli
 
         private static void PrintRowSeparator(int lengthOfDelimeter)
         {
-            Console.WriteLine(new String(Constants.ROW_SEPARATOR, lengthOfDelimeter));
+            Console.WriteLine(new String(ROW_SEPARATOR, lengthOfDelimeter));
         }
     }
 }
