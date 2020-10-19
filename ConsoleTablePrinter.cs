@@ -1,5 +1,5 @@
 using System;
-using static cscli.Constants
+using static cscli.Constants;
 
 namespace cscli
 {
