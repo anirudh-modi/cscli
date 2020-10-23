@@ -1,12 +1,12 @@
 # C#.Net basics
 
 ## Getting started
-The best way to get started with a C# project is to use `dotnet` cli tool. For simplicity sake we would stick to a cli application.
+The best way to get started with a `C#.Net` project is to use `dotnet` cli tool. For simplicity sake we would stick to a cli application.
   - First let us create a folder named `dotnetcli`
   - `cd dotnetcli` to move into the directory from your terminal
   - run `dotnet new console`
 
-Once the setup is completed. It would give create a dotnet project with certain files in the `cwd`. 
+Once the setup is completed. It would give create a `dotnet` project with certain files in the `cwd`. 
 
 ## Folder structure
 We would be explore the prupose of each files and folder individually. Before, that lets look at the folder structure created within our `dotnetinit` folder.
