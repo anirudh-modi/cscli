@@ -85,7 +85,7 @@ Let us first explore and understand the purpose of folder and files present iin 
   
 </details>
 
-## Sources
+## References
   - https://www.geeksforgeeks.org/main-method-in-c-sharp/
   - https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive
   - https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/class
