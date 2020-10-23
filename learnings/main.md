@@ -16,6 +16,19 @@ namespace learning
 }
 ```
 
+## Usage
+```
+using static learning.Constants;
+
+namespace learning
+{
+    static void Main()
+    {
+        Console.WriteLine(SPACED_TABLE);
+    }
+}
+```
+
 # Declaring a helper file
 To declare a file which may contian helper functions or constants, one needs to use a `static` class, with either `const` variables or `static` method.
 
@@ -36,6 +49,20 @@ namespace learning
         {
             return "---" + text + "---";
         }       
+    }
+}
+```
+
+
+## Usage
+```
+using static learning.ConsoleHelper;
+
+namespace learning
+{
+    static void Main()
+    {
+        PrintRow("Hellow world");
     }
 }
 ```
@@ -71,10 +98,8 @@ namespace learning
 }
 ```
 
-Using the above eample
+### Usage
 ```
-// Usage
-
 using learning;
 
 namespace learningExecutor
