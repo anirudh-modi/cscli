@@ -1,4 +1,4 @@
-# C# basics
+# C#.Net basics
 
 ## Getting started
 The best way to get started with a C# project is to use `dotnet` cli tool. For simplicity sake we would stick to a cli application.
