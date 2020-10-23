@@ -28,9 +28,10 @@ Let us first explore and understand the purpose of folder and files present iin 
   - `dotnetinit.csproj` contains information about how to build a project
   - `*.cs` where you actually code
 
-### Program.cs
+### `Program.cs`
 <details>
-  <summary> Click to Expand</summary>
+<summary> Click to Expand</summary>
+  
   
    **Every `dotnet` application must have a starting point, this starting point is described by having a `Main` method under any desired class.**
 
@@ -77,7 +78,7 @@ Let us first explore and understand the purpose of folder and files present iin 
       - by default `Main` methods are [`private`](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers).
 </details>
 
-### dotnetinit.csporj
+### `dotnetinit.csporj`
 <details>
   <summary>Click to read</summary>
   
