@@ -30,7 +30,7 @@ Let us first explore and understand the purpose of folder and files present iin 
 
 ### `Program.cs`
 <details>
-<summary> Click to Expand</summary>
+<summary> Click to Read</summary>
   
   
    **Every `dotnet` application must have a starting point, this starting point is described by having a `Main` method under any desired class.**
@@ -80,7 +80,7 @@ Let us first explore and understand the purpose of folder and files present iin 
 
 ### `dotnetinit.csporj`
 <details>
-  <summary>Click to read</summary>
+  <summary>Click to Read</summary>
   
   
 </details>
