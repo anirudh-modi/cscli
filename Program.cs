@@ -2,6 +2,8 @@
 using System.Text.Json;
 using System.IO;
 using Newtonsoft.Json;
+using static cscli.CommandPrinterFactory;
+using static cscli.Constants;
 
 namespace cscli
 {
@@ -33,22 +35,23 @@ namespace cscli
             }
             else
             {
-                ConsoleHelper.Row rowIns = new ConsoleHelper.Row("add", "To add a new task", false);
-                Console.WriteLine("Usage: dotnet run [options]\n");
-                ConsoleHelper.Row[] rows = new ConsoleHelper.Row[] {
-                    new ConsoleHelper.Row("add", "To add a new task", false),
-                    new ConsoleHelper.Row("tasks", "List all tasks", false),
+                Console.WriteLine("Usage: dotnet run [command]\n");
+                Row[] rows = new Row[] {
+                    new Row("add", "To add a new task"),
+                    new Row("tasks", "List all tasks"),
                 };
+                CommandPrinter printer = PrintTable(SPACED_TABLE, "command", rows);
+
 
                 // string jsonString = JsonSerializer.Serialize(rowIns);
                 // File.WriteAllText("test.json", jsonString);
 
-                string jsonString = File.ReadAllText("test.json");
-                ConsoleHelper.Row weatherForecast = JsonConvert.DeserializeObject<ConsoleHelper.Row>(jsonString);
+                // string jsonString = File.ReadAllText("test.json");
+                // Row weatherForecast = JsonConvert.DeserializeObject<Row>(jsonString);
 
-                Console.WriteLine(weatherForecast.title);
+                // Console.WriteLine(weatherForecast.title);
 
-                ConsoleHelper.PrintTable(Constants.SPACED_TABLE, "Options", rows);
+                // PrintTable(Constants.SPACED_TABLE, "Options", rows);
             }
         }
     }
