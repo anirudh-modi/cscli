@@ -6,7 +6,7 @@ namespace cscli
 {
     static class CommandPrinterFactory
     {
-        public static CommandPrinter PrintTable(string printerType, string title, Row[] rows)
+        public static ICommandPrinter PrintTable(string printerType, string title, Row[] rows)
         {
             switch (printerType)
             {
@@ -31,13 +31,13 @@ namespace cscli
             }
         }
 
-        public interface CommandPrinter
+        public interface ICommandPrinter
         {
             void PrintTitle();
             void PrintRows();
         }
 
-        private class SpaceTablePrinter : CommandPrinter
+        private class SpaceTablePrinter : ICommandPrinter
         {
             string tableTitle { get; set; } = String.Empty;
             Row[] rows { get; set; }
@@ -65,7 +65,7 @@ namespace cscli
             }
         }
 
-        private class GridTablePrinter : CommandPrinter
+        private class GridTablePrinter : ICommandPrinter
         {
             string tableTitle { get; set; } = String.Empty;
             Row[] rows { get; set; }

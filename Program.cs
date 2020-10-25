@@ -40,7 +40,7 @@ namespace cscli
                     new Row("add", "To add a new task"),
                     new Row("tasks", "List all tasks"),
                 };
-                CommandPrinter printer = PrintTable(SPACED_TABLE, "command", rows);
+                ICommandPrinter printer = PrintTable(SPACED_TABLE, "command", rows);
 
 
                 // string jsonString = JsonSerializer.Serialize(rowIns);
