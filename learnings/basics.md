@@ -32,7 +32,6 @@ Let us first explore and understand the purpose of folder and files present iin 
 <details>
 <summary> Click to Read</summary>
   
-  
    **Every `dotnet` application must have a starting point, this starting point is described by having a `Main` method under any desired class.**
 
   By default `dotnet` cli tool will create a file named `Program.cs`, which contains the `Program` class which holds the starting point for us, ie the `Main`   method. 
@@ -82,7 +81,23 @@ Let us first explore and understand the purpose of folder and files present iin 
 <details>
   <summary>Click to Read</summary>
   
+  As `dotnet` is a platform which supports multiple language, and are compiled and run using the same standard command ie, 
+  - `dotnet run` to build and run
+  - `dotnet run --no-build` to simply run
+  - `dotnet build` to simply build an existing code
+
+
+  It becomes fairly evident that underlying the `dotnet build` command, there needs to be build system which must understand the basic questions:
+  - language being used, which in turn should mean compiler to be used
+  - the dependencies/packages being used
+  - the language version to be used
+  - the output to be generated
   
+  These information are collected by `dotnet` by passing the `.csproj` file, to the underlying build system [MSBuild](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild?view=vs-2019), every dotnet project need to have a `proj` file depending on the language, ie;
+  - `.csproj` for a `C#` project
+  - `.fsproj` for `F#` projet
+  - `vbproj` for `VB` project and so on..
+
 </details>
 
 ## References
