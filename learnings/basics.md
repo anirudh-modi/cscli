@@ -86,14 +86,13 @@ Let us first explore and understand the purpose of folder and files present iin 
   - `dotnet run --no-build` to simply run
   - `dotnet build` to simply build an existing code
 
-
-  It becomes fairly evident that underlying the `dotnet build` command, there needs to be build system which must understand the basic questions:
+  It becomes fairly evident that underlying the `dotnet build` command, there needs to be a build system which must be able to answer some basic questions:
   - language being used, which in turn should mean compiler to be used
   - the dependencies/packages being used
   - the language version to be used
   - the output to be generated
   
-  These information are collected by `dotnet` by passing the `.csproj` file, to the underlying build system [MSBuild](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild?view=vs-2019), every dotnet project need to have a `proj` file depending on the language, ie;
+  These information are collected by `dotnet` by passing the `.csproj` file, to the underlying build system [MSBuild](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild?view=vs-2019). Every `dotnet` project need to have a `*.proj` file depending on the language, in order to let dotnet understand how to build and run this project, ie;
   - `.csproj` for a `C#` project
   - `.fsproj` for `F#` projet
   - `vbproj` for `VB` project and so on..
@@ -107,3 +106,6 @@ Let us first explore and understand the purpose of folder and files present iin 
   - https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/namespace
   - https://stackoverflow.com/a/15022530/4197363
   - https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/main-and-command-args/
+  - https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild?view=vs-2019
+  - https://docs.microsoft.com/en-us/visualstudio/msbuild/build-process-overview?view=vs-2019
+  - 
