@@ -24,9 +24,13 @@ dotnetinit
 Let us first explore and understand the purpose of folder and files present iin the application created by dotnet cli tool.
 
 ### Summary
-  - `bin` and `obj` folder contains you compiled code
-  - `dotnetinit.csproj` contains information about how to build a project
-  - `*.cs` where you actually code
+
+| File/Folder         | Purpose                                              |
+|---------------------|------------------------------------------------------|
+| `bin` and `obj`     | These folders contains your compiled code            |
+| `dotnetinit.csproj` | contains information about how to build your project |
+| `*.cs`              | where your actual code would live                    |
+
 
 ### `Program.cs`
 <details>
