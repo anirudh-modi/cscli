@@ -14,12 +14,11 @@ namespace cscli
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nWelcome to TODO using C#.Net\n");
             Console.ResetColor();
-
             if (args.Length > 0)
             {
                 string command = args[0];
                 string command2 = args[1];
-                Console.WriteLine(command2);
+
                 switch (command)
                 {
                     case "add":
