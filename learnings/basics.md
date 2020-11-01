@@ -36,7 +36,7 @@ Let us first explore and understand the purpose of folder and files present iin 
 <details>
 <summary> Click to Read</summary>
   
-   **Every `dotnet` application must have a starting point, this starting point is described by having a `Main` method under any desired class.**
+  **Every `dotnet` application must have a starting point, this starting point is described by having a `Main` method under any desired class.**
 
   By default `dotnet` cli tool will create a file named `Program.cs`, which contains the `Program` class which holds the starting point for us, ie the `Main`   method. 
 
@@ -105,15 +105,32 @@ Let us first explore and understand the purpose of folder and files present iin 
 
 ### `bin` or `obj` folder
   <details>
-    <summmary>Click to Read</summary>
+  <summmary>Click to Read</summary>
 
-    As we mentioned earlier both the `bin` an `obj` folder contains a complied code for our project. One may ask why do we need to keep compiled code in 2 different folders why not create a `bin` folder with the final output for the `dll/exe` files, that is because the compilation process is performed in 2 phases
-    - The compiling phase, where codes are partially compiled codes
-    - The linking phase, where these partially compiled codes are linked to create the final `IL` files, ie the `dll/exe` files
+  Both the `bin` an `obj` folder contains a complied code for our project. One may ask why do we need to keep compiled code in 2 different folders why not create a `bin` folder with the final output for the `dll/exe` files, that is because the entire build process is performed in *incrementally* manner. 
+  
+  We have to understand that the `MSBuild` is not responsible only for a simple compile the code to generate the `IL` files, [but the entire build is responsible for varied process](https://docs.microsoft.com/en-us/visualstudio/msbuild/build-process-overview?view=vs-2019) from 
+  - language resolution
+  - codee compilation
+  - configuration files resolution
+  - package resolution
+  - runtime output resolution
+  - dependent files resolution
+  - managing local cache copy for next build, etc
+  
+  | NOTE                                                                                                                                                             |
+  | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | For further information about the build steps look into [MSBuild doc](https://docs.microsoft.com/en-us/visualstudio/msbuild/build-process-overview?view=vs-2019) |
 
-  [Having this 2 phase compilation process](https://www.youtube.com/watch?v=vjHage_2g4Y&ab_channel=Questpond) enables `dotnet` to only compiles codes which are changed rather than building and compiling the entire project up, and these output are stored in the respective folders.
-    -  `bin` folder will contain the final compiled code ie the Intermediate Langauge files which would then be consumed by the `Core CLR` to convert into `Machine Code` and run it.
-    -  `obj` folder will contain a **partially compiled code** which is later used to generate the final output `IL` files
+  Now resolving and performing each step on subsequent build may work on a small project which varies from a mere couple of files, however for huge projects performing those unrequired steps could simply increase the time spent in building the application, so to reduce this, `MSBuild` performs [Incremental builds](https://docs.microsoft.com/en-us/visualstudio/msbuild/incremental-builds?view=vs-2019) where it would compares changes in project with its previous build and perform only steps which are required rather than buiilding the whole project from ground. And for this reason the 2 folders are introduced, i.e. 
+  -  `bin` folder will contain the final compiled code ie the Intermediate Langauge files which would then be consumed by the `Core CLR` to convert into `Machine Code` and run it.
+  -  `obj` folder contain a **partially compiled code** which is later used to generate the final output `IL` files for the `bin` folder
+
+  For better information you can try to compare the output of subsequent compilation by running 
+  - `dotnet build -v=n` which would give a brief overviewe about which individual stages are being performed, for the entire build process, 
+  - or run `dotnet build -v=d` which gives a detailed information of why a stage was skipped and why a stage was executed
+  
+  If you want to see how changing your code effects the build process watch out for step `Target "CoreCompile` which is responsible for compiling your code, and how changing the code would trigger this step and how not changing any code triggers this step.
 
 </details>
 
@@ -126,4 +143,4 @@ Let us first explore and understand the purpose of folder and files present iin 
   - https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/main-and-command-args/
   - https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild?view=vs-2019
   - https://docs.microsoft.com/en-us/visualstudio/msbuild/build-process-overview?view=vs-2019
-  - 
+  - https://docs.microsoft.com/en-us/visualstudio/msbuild/incremental-builds?view=vs-2019
