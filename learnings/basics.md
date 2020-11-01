@@ -26,7 +26,7 @@ Let us first explore and understand the purpose of folder and files present iin 
 ### Summary
 
 | File/Folder         | Purpose                                              |
-|---------------------|------------------------------------------------------|
+| ------------------- | ---------------------------------------------------- |
 | `bin` and `obj`     | These folders contains your compiled code            |
 | `dotnetinit.csproj` | contains information about how to build your project |
 | `*.cs`              | where your actual code would live                    |
@@ -100,6 +100,20 @@ Let us first explore and understand the purpose of folder and files present iin 
   - `.csproj` for a `C#` project
   - `.fsproj` for `F#` projet
   - `vbproj` for `VB` project and so on..
+
+</details>
+
+### `bin` or `obj` folder
+  <details>
+    <summmary>Click to Read</summary>
+
+    As we mentioned earlier both the `bin` an `obj` folder contains a complied code for our project. One may ask why do we need to keep compiled code in 2 different folders why not create a `bin` folder with the final output for the `dll/exe` files, that is because the compilation process is performed in 2 phases
+    - The compiling phase, where codes are partially compiled codes
+    - The linking phase, where these partially compiled codes are linked to create the final `IL` files, ie the `dll/exe` files
+
+  [Having this 2 phase compilation process](https://www.youtube.com/watch?v=vjHage_2g4Y&ab_channel=Questpond) enables `dotnet` to only compiles codes which are changed rather than building and compiling the entire project up, and these output are stored in the respective folders.
+    -  `bin` folder will contain the final compiled code ie the Intermediate Langauge files which would then be consumed by the `Core CLR` to convert into `Machine Code` and run it.
+    -  `obj` folder will contain a **partially compiled code** which is later used to generate the final output `IL` files
 
 </details>
 
