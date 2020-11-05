@@ -1,4 +1,6 @@
-# C#.Net basics
+# Inside your dotnet project
+
+Let us cover some of th very basics about a `dotnet` project. This is not a how to setup a `dotnet` project but on what is inside your `dotnet` project.
 
 ## Getting started
 The best way to get started with a `C#.Net` project is to use `dotnet` cli tool. For simplicity sake we would stick to a cli application.
