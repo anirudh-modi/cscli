@@ -1,4 +1,4 @@
-# Inside your dotnet project
+# Inside your `dotnet project
 
 Let us cover some of th very basics about a `dotnet` project. This is not a how to setup a `dotnet` project but on what is inside your `dotnet` project.
 
